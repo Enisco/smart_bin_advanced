@@ -10,7 +10,7 @@ class WasteBinApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Smart Bin',
+      title: 'Smart Bin App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.purple,
