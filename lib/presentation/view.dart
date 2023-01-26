@@ -97,10 +97,25 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                                 const SizedBox(height: 10),
                                 Text(
                                   '${controller.percentageVal.toString()}%',
-                                  style: const TextStyle(
-                                      fontSize: 55,
-                                      fontWeight: FontWeight.w800,
-                                      color: Colors.green),
+                                  style: TextStyle(
+                                    fontSize: 55,
+                                    fontWeight: FontWeight.w800,
+                                    color: controller.percentageVal >= 90
+                                        ? Colors.red
+                                        : controller.percentageVal >= 80
+                                            ? Colors.red[400]
+                                            : controller.percentageVal >= 70
+                                                ? Colors.amber[700]
+                                                : controller.percentageVal >= 60
+                                                    ? Colors.amber
+                                                    : controller.percentageVal >=
+                                                            50
+                                                        ? Colors.amber
+                                                        : controller.percentageVal >=
+                                                                40
+                                                            ? Colors.green[400]
+                                                            : Colors.green,
+                                  ),
                                 ),
                               ],
                             ),
