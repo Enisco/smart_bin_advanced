@@ -53,7 +53,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      height: 70,
+                      height: 60,
                       width: 70,
                       decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(
