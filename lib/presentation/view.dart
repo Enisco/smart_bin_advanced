@@ -98,9 +98,9 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                                 Text(
                                   '${controller.percentageVal.toString()}%',
                                   style: const TextStyle(
-                                    fontSize: 55,
-                                    fontWeight: FontWeight.w800,
-                                  ),
+                                      fontSize: 55,
+                                      fontWeight: FontWeight.w800,
+                                      color: Colors.green),
                                 ),
                               ],
                             ),
@@ -109,75 +109,6 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                         ),
                       ),
                     ),
-
-                    // Card(
-                    //   elevation: 6,
-                    //   shadowColor: Colors.grey[700],
-                    //   child: Container(
-                    //     decoration: const BoxDecoration(
-                    //       borderRadius: BorderRadius.all(Radius.circular(15)),
-                    //     ),
-                    //     height: size.height * 0.18,
-                    //     width: 20,
-                    //     child: Column(
-                    //       children: [
-                    //         Expanded(
-                    //           child: Container(
-                    //             decoration: BoxDecoration(
-                    //               color: Colors.grey[50],
-                    //               border: Border.all(
-                    //                 width: 0.5,
-                    //                 color: Colors.grey,
-                    //               ),
-                    //               borderRadius: controller.percentageVal <= 0
-                    //                   ? const BorderRadius.all(
-                    //                       Radius.circular(5),
-                    //                     )
-                    //                   : const BorderRadius.only(
-                    //                       topLeft: Radius.circular(5),
-                    //                       topRight: Radius.circular(5)),
-                    //             ),
-                    //             width: 20,
-                    //             height: size.height *
-                    //                 0.18 *
-                    //                 (100.0 -
-                    //                     controller.percentageVal.toDouble() /
-                    //                         100),
-                    //           ),
-                    //         ),
-                    //         Card(
-                    //           shape: const RoundedRectangleBorder(
-                    //             borderRadius:
-                    //                 BorderRadius.all(Radius.circular(8)),
-                    //           ),
-                    //           elevation: 6,
-                    //           shadowColor: Colors.grey[700],
-                    //           margin: const EdgeInsets.all(0),
-                    //           child: Container(
-                    //             decoration: BoxDecoration(
-                    //               color: Colors.red,
-                    //               borderRadius: controller.percentageVal >= 100
-                    //                   ? const BorderRadius.all(
-                    //                       Radius.circular(5),
-                    //                     )
-                    //                   : const BorderRadius.only(
-                    //                       bottomRight: Radius.circular(3),
-                    //                       bottomLeft: Radius.circular(3)),
-                    //               border: Border.all(
-                    //                 width: 0.5,
-                    //                 color: Colors.grey,
-                    //               ),
-                    //             ),
-                    //             width: 30,
-                    //             height: size.height *
-                    //                 0.18 *
-                    //                 (controller.percentageVal.toDouble() / 100),
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //   ),
-                    // ),
 
                     // Background Gradient
                     Card(

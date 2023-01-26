@@ -116,7 +116,7 @@ class SmartWasteBinController extends GetxController {
             }
           }
 
-          if (percentageVal > 90) {
+          if (percentageVal >= 90) {
             localNotificationServices.showNotification(percentageVal);
             locked = true;
             print("bin is now locked: locked = $locked");
