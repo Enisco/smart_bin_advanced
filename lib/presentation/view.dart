@@ -61,7 +61,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                         ),
                         image: DecorationImage(
                           image: AssetImage(
-                            'assets/waste-bin-removebg-preview.png',
+                            'assets/waste-bin.gif',
                           ),
                           fit: BoxFit.fill,
                         ),
