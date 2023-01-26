@@ -60,7 +60,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const SizedBox(width: 25),
+                      const SizedBox(width: 35),
                       Container(
                         height: 90,
                         width: 100,
