@@ -145,13 +145,13 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                                       : const Image(
                                           image: AssetImage(
                                               "assets/waste-bin-closed.png"),
-                                          height: 150,
-                                          width: 100,
+                                          height: 120,
+                                          width: 80,
                                           color: Colors.black87,
                                         ),
                                   const Expanded(child: SizedBox()),
                                   Text(
-                                    !controller.open
+                                    controller.open
                                         ? 'Bin is Open'
                                         : 'Bin is Closed',
                                     style: TextStyle(
