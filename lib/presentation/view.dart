@@ -49,25 +49,53 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      height: 60,
-                      width: 70,
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(0),
-                        ),
-                        image: DecorationImage(
-                          image: AssetImage(
-                            'assets/waste-bin.gif',
+                Container(
+                  width: size.width,
+                  height: 150,
+                  decoration: const BoxDecoration(
+                    color: Color.fromRGBO(24, 160, 251, 0.08),
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 60,
+                        width: 70,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(0),
                           ),
-                          fit: BoxFit.fill,
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'assets/waste-bin.gif',
+                            ),
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'Bin fill level:',
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black54),
+                          ),
+                          const SizedBox(height: 10),
+                          Text(
+                            '${controller.percentageVal.toString()}%',
+                            style: const TextStyle(
+                              fontSize: 55,
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
                 SizedBox(height: size.height * 0.04),
                 Row(
