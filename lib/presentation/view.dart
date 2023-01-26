@@ -67,36 +67,6 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                         ),
                       ),
                     ),
-                    Column(
-                      children: [
-                        const Padding(padding: EdgeInsets.only(top: 90)),
-                        SizedBox(
-                          height: 260,
-                          width: 30,
-                          child: Column(
-                            children: [
-                              Expanded(
-                                child: Container(
-                                  width: 30,
-                                  height: 260 *
-                                      (100.0 -
-                                          controller.percentageVal.toDouble() /
-                                              100),
-                                  color: Colors.green,
-                                ),
-                              ),
-                              Container(
-                                width: 30,
-                                height: 260 *
-                                    (controller.percentageVal.toDouble() / 100),
-                                color: Colors.red,
-                              ),
-                              const Padding(padding: EdgeInsets.only(top: 5))
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
                   ],
                 ),
                 SizedBox(height: size.height * 0.04),
