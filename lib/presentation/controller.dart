@@ -18,6 +18,12 @@ class SmartWasteBinController extends GetxController {
   bool open = false;
   String? lastTimeOpened, lastTimeClosed, lastTimeFull;
 
+  void changeSnoozeState() {
+    snoozeNotification = !snoozeNotification;
+    update();
+    print("Bell pressed. snoozeNotification is now $snoozeNotification");
+  }
+
   String getLastTime() {
     DateTime now = DateTime.now();
     String lastTime =
@@ -33,6 +39,8 @@ class SmartWasteBinController extends GetxController {
   final builder = MqttClientPayloadBuilder();
   String pubTopic = 'wastebinapp/apptobin';
   String subTopic = 'wastebinapp/bintoapp';
+  bool snoozeNotification = false, shouldSnooze = false;
+  DateTime snoozeTime = DateTime.now();
 
   /// Functions
   Future<void> mqttConnect() async {
@@ -117,9 +125,24 @@ class SmartWasteBinController extends GetxController {
           }
 
           if (percentageVal >= 90) {
+            // if (snoozeNotification == true && shouldSnooze == false) {
+            //   print("Hallo here");
+            //   localNotificationServices.showNotification(percentageVal);
+            //   shouldSnooze = true;
+            //   snoozeTime.add(const Duration(minutes: 1));
+            // } else if (snoozeNotification == true && shouldSnooze == true) {
+            //   print("Hey! Im here");
+            //   if (snoozeTime.compareTo(DateTime.now()) >= 0) {
+            //     print("From this corner");
+            //     shouldSnooze = false;
+            //     localNotificationServices.showNotification(percentageVal);
+            //   }
+            // } else {
+            //   print("We dont know wjat's going on");
+            //   localNotificationServices.showNotification(percentageVal);
+            // }
             localNotificationServices.showNotification(percentageVal);
-            locked = true;
-            print("bin is now locked: locked = $locked");
+
             lastTimeFull = getLastTime();
             print("lastTimeFull: $lastTimeFull");
             update();

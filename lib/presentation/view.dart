@@ -31,7 +31,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
-        centerTitle: true,
+        centerTitle: false,
         title: const Text(
           'Smart Waste Bin',
           style: TextStyle(
@@ -40,6 +40,22 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
             fontWeight: FontWeight.w600,
           ),
         ),
+        actions: [
+          GetBuilder<SmartWasteBinController>(
+            init: SmartWasteBinController(),
+            builder: (context) {
+              return IconButton(
+                onPressed: () {
+                  controller.changeSnoozeState();
+                },
+                icon: Icon(controller.snoozeNotification
+                    ? Icons.notifications_off_outlined
+                    : Icons.notifications_active_outlined),
+              );
+            },
+          ),
+          const SizedBox(width: 10),
+        ],
       ),
       body: GetBuilder<SmartWasteBinController>(
         init: SmartWasteBinController(),
@@ -103,7 +119,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                                     color: controller.percentageVal >= 90
                                         ? Colors.red
                                         : controller.percentageVal >= 80
-                                            ? Colors.red[400]
+                                            ? Colors.amber[900]
                                             : controller.percentageVal >= 70
                                                 ? Colors.amber[700]
                                                 : controller.percentageVal >= 60
