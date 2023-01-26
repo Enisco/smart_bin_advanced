@@ -52,13 +52,15 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                 Container(
                   width: size.width,
                   height: 150,
-                  decoration: const BoxDecoration(
-                    color: Color.fromRGBO(24, 160, 251, 0.08),
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                  decoration: BoxDecoration(
+                    // color: Color.fromRGBO(24, 160, 251, 0.08),
+                    color: Colors.grey[100],
+                    borderRadius: const BorderRadius.all(Radius.circular(12)),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
+                      const SizedBox(width: 15),
                       Container(
                         height: 60,
                         width: 70,
