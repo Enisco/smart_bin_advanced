@@ -181,7 +181,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
 
                     // Background Gradient
                     Card(
-                      elevation: 6,
+                      elevation: 10,
                       shadowColor: Colors.grey[700],
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(4)),
@@ -241,35 +241,25 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                                             100),
                               ),
                             ),
-                            Card(
-                              color: Colors.transparent,
-                              shape: const RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(5)),
-                              ),
-                              elevation: 6,
-                              shadowColor: Colors.transparent,
-                              margin: const EdgeInsets.all(0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.transparent,
-                                  borderRadius: controller.percentageVal >= 100
-                                      ? const BorderRadius.all(
-                                          Radius.circular(5),
-                                        )
-                                      : const BorderRadius.only(
-                                          bottomRight: Radius.circular(5),
-                                          bottomLeft: Radius.circular(5)),
-                                  border: Border.all(
-                                    width: 0.5,
-                                    color: Colors.grey,
-                                  ),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                borderRadius: controller.percentageVal >= 100
+                                    ? const BorderRadius.all(
+                                        Radius.circular(5),
+                                      )
+                                    : const BorderRadius.only(
+                                        bottomRight: Radius.circular(5),
+                                        bottomLeft: Radius.circular(5)),
+                                border: Border.all(
+                                  width: 0.5,
+                                  color: Colors.grey,
                                 ),
-                                width: 30,
-                                height: size.height *
-                                    0.18 *
-                                    (controller.percentageVal.toDouble() / 100),
                               ),
+                              width: 20,
+                              height: size.height *
+                                  0.18 *
+                                  (controller.percentageVal.toDouble() / 100),
                             ),
                           ],
                         ),
