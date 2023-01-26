@@ -45,7 +45,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
         builder: (context) {
           return SingleChildScrollView(
             padding: EdgeInsets.symmetric(
-                horizontal: 40, vertical: size.height * 0.03),
+                horizontal: 30, vertical: size.height * 0.03),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -100,7 +100,59 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                     ],
                   ),
                 ),
-                SizedBox(height: size.height * 0.04),
+                const SizedBox(height: 50),
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 18),
+                  width: size.width,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[100]?.withOpacity(0.5),
+                    borderRadius: const BorderRadius.all(Radius.circular(12)),
+                  ),
+                  child: Column(
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(bottom: 18),
+                        child: Text(
+                          'Bin Current State',
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black54),
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              // width: size.width * 0.35,
+                              height: 200,
+                              decoration: const BoxDecoration(
+                                color: Color.fromRGBO(64, 190, 121, 0.05),
+                                // color: Colors.grey[100],
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12)),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 15),
+                          Expanded(
+                            child: Container(
+                              // width: size.width * 0.35,
+                              height: 150,
+                              decoration: const BoxDecoration(
+                                color: Color.fromRGBO(24, 160, 221, 0.08),
+                                // color: Colors.grey[100],
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12)),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
