@@ -3,6 +3,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
 import 'package:smart_bin_advanced/services/local_notif_services.dart';
@@ -15,6 +16,15 @@ class SmartWasteBinController extends GetxController {
   int percentageVal = 0;
   bool locked = false;
   bool open = false;
+  String? lastTimeOpened, lastTimeClosed, lastTimeFull;
+
+  String getLastTime() {
+    DateTime now = DateTime.now();
+    String lastTime =
+        "${DateFormat.yMMMEd().format(now)} ${DateFormat.jm().format(DateTime.now())}";
+    print(lastTime);
+    return lastTime;
+  }
 
   /// MQTT EMQX Credentials
   final client =
@@ -88,9 +98,15 @@ class SmartWasteBinController extends GetxController {
             print("bin is now unlocked: locked = $locked");
           } else if (receivedMessage.contains('o')) {
             open = true;
+            lastTimeOpened = getLastTime();
+            print("lastTimeOpened: $lastTimeOpened");
+            update();
             print("bin is now open: open = $open");
           } else if (receivedMessage.contains('c')) {
             open = false;
+            lastTimeClosed = getLastTime();
+            print("lastTimeClosed: $lastTimeClosed");
+            update();
             print("bin is now closed: open = $open");
           } else {
             try {
@@ -102,6 +118,9 @@ class SmartWasteBinController extends GetxController {
 
           if (percentageVal > 90) {
             localNotificationServices.showNotification(percentageVal);
+            lastTimeFull = getLastTime();
+            print("lastTimeFull: $lastTimeFull");
+            update();
             print('Full: $percentageVal is greater than 90%');
           } else {
             print('$percentageVal is less than 90');

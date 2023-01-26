@@ -1,5 +1,5 @@
 // ignore_for_file: depend_on_referenced_packages
-
+//  (size.height - (size.height * 0.81) ) / 2
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smart_bin_advanced/presentation/controller.dart';
@@ -57,7 +57,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                   ),
                   child: Container(
                     width: size.width,
-                    height: 150,
+                    height: size.height * 0.18,
                     decoration: BoxDecoration(
                       color: Colors.grey[100]?.withOpacity(0.8),
                       borderRadius: const BorderRadius.all(Radius.circular(12)),
@@ -106,7 +106,105 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 50),
+                SizedBox(height: size.height * 0.03),
+                // Last activity box
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  height: size.height - (size.height * 0.84),
+                  width: size.width,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[100],
+                    borderRadius: const BorderRadius.all(Radius.circular(12)),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Last time opened
+                      Row(
+                        children: const [
+                          Text(
+                            'Last time opened:',
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black54),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            controller.lastTimeOpened ?? "No records yet",
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                color: controller.lastTimeOpened == null
+                                    ? Colors.black54
+                                    : Colors.black87),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+
+                      // Last time closed
+                      Row(
+                        children: const [
+                          Text(
+                            'Last time closed:',
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black54),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            controller.lastTimeClosed ?? "No records yet",
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                color: controller.lastTimeClosed == null
+                                    ? Colors.black54
+                                    : Colors.black87),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+
+                      // Last time full
+                      Row(
+                        children: const [
+                          Text(
+                            'Last time full:',
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.black54),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            controller.lastTimeFull ?? "No records yet",
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                color: controller.lastTimeFull == null
+                                    ? Colors.black54
+                                    : Colors.black87),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: size.height * 0.03),
                 Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 18),
@@ -133,7 +231,8 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                             child: Container(
                               padding: EdgeInsets.only(
                                   bottom: 10, top: controller.open ? 12 : 12),
-                              height: 200,
+                              // height: 200,
+                              height: size.height * 0.22,
                               decoration: const BoxDecoration(
                                 color: Color.fromRGBO(24, 160, 221, 0.06),
                                 borderRadius:
@@ -177,7 +276,8 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                           Expanded(
                             child: Container(
                               padding: const EdgeInsets.only(bottom: 10),
-                              height: 200,
+                              // height: 200,
+                              height: size.height * 0.22,
                               decoration: const BoxDecoration(
                                 color: Color.fromRGBO(64, 190, 121, 0.05),
                                 borderRadius:
@@ -222,14 +322,14 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                     ],
                   ),
                 ),
-                SizedBox(height: size.height * 0.045),
+                SizedBox(height: size.height * 0.04),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     TextButton(
                       onPressed: () {
                         print('Custom Button pressed');
-                        controller.mqttPublish(controller.locked ? "2" : "1");
+                        controller.mqttPublish(controller.open ? "2" : "1");
                       },
                       style: TextButton.styleFrom(
                         backgroundColor: controller.open
@@ -275,7 +375,8 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                       ),
                     ),
                   ],
-                )
+                ),
+                SizedBox(height: size.height * 0.03),
               ],
             ),
           );
