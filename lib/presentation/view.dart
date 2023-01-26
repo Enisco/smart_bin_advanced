@@ -58,7 +58,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                     borderRadius: const BorderRadius.all(Radius.circular(12)),
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       const SizedBox(width: 35),
                       Container(
@@ -95,7 +95,8 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                             ),
                           ),
                         ],
-                      )
+                      ),
+                      const SizedBox(width: 135),
                     ],
                   ),
                 ),
