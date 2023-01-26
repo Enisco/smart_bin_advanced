@@ -106,7 +106,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 18),
                   width: size.width,
                   decoration: BoxDecoration(
-                    color: Colors.grey[100]?.withOpacity(0.5),
+                    color: Colors.grey[100]?.withOpacity(0.7),
                     borderRadius: const BorderRadius.all(Radius.circular(12)),
                   ),
                   child: Column(
