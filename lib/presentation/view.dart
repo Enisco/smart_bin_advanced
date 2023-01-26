@@ -54,7 +54,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                   children: [
                     Container(
                       height: 100,
-                      width: 50,
+                      width: 70,
                       decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(
                           Radius.circular(0),
