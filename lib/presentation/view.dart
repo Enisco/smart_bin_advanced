@@ -188,8 +188,36 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                               child: Column(
                                 children: [
                                   const SizedBox(height: 15),
+                                  !controller.open
+                                      ? const Image(
+                                          image:
+                                              AssetImage("assets/bin_open.png"),
+                                          height: 110,
+                                          width: 100,
+                                          color: Colors.black87,
+                                        )
+                                      : const Image(
+                                          image: AssetImage(
+                                              "assets/bin-closed.png"),
+                                          height: 110,
+                                          width: 100,
+                                          color: Colors.black87,
+                                        ),
+                                  const Expanded(child: SizedBox()),
+                                  Text(
+                                    !controller.open
+                                        ? ' Bin is Open'
+                                        : 'Bin is Closed',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: !controller.open
+                                            ? Colors.red[800]
+                                            : Colors.black),
+                                  ),
+                                  // /
                                   Image(
-                                    image: !controller.locked
+                                    image: controller.locked
                                         ? const AssetImage(
                                             "assets/lock-closed.png")
                                         : const AssetImage(
@@ -200,7 +228,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                                   ),
                                   const Expanded(child: SizedBox()),
                                   Text(
-                                    !controller.locked
+                                    controller.locked
                                         ? 'Bin is Locked'
                                         : 'Bin is Unlocked',
                                     style: TextStyle(
