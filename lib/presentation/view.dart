@@ -133,22 +133,33 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                               ),
                               child: Column(
                                 children: [
-                                  SizedBox(height: 15),
-                                  Image(
-                                    image: controller.locked
-                                        ? AssetImage("assets/lock-closed.png")
-                                        : AssetImage("assets/padlock_open.png"),
-                                    height: controller.locked ? 180 : 150,
-                                    width: 100,
-                                    color: Colors.black87,
-                                  ),
-                                  Expanded(child: SizedBox()),
+                                  const SizedBox(height: 15),
+                                  controller.open
+                                      ? const Image(
+                                          image:
+                                              AssetImage("assets/bin-open.png"),
+                                          height: 150,
+                                          width: 100,
+                                          color: Colors.black87,
+                                        )
+                                      : const Image(
+                                          image: AssetImage(
+                                              "assets/waste-bin-closed.png"),
+                                          height: 150,
+                                          width: 100,
+                                          color: Colors.black87,
+                                        ),
+                                  const Expanded(child: SizedBox()),
                                   Text(
-                                    'Bin is Unlocked',
+                                    !controller.open
+                                        ? 'Bin is Open'
+                                        : 'Bin is Closed',
                                     style: TextStyle(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.black),
+                                        color: !controller.open
+                                            ? Colors.red[800]
+                                            : Colors.black),
                                   ),
                                 ],
                               ),
@@ -157,11 +168,39 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                           const SizedBox(width: 15),
                           Expanded(
                             child: Container(
+                              padding: const EdgeInsets.only(bottom: 10),
                               height: 200,
                               decoration: const BoxDecoration(
                                 color: Color.fromRGBO(64, 190, 121, 0.05),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(12)),
+                              ),
+                              child: Column(
+                                children: [
+                                  const SizedBox(height: 15),
+                                  Image(
+                                    image: !controller.locked
+                                        ? const AssetImage(
+                                            "assets/lock-closed.png")
+                                        : const AssetImage(
+                                            "assets/padlock_open.png"),
+                                    height: !controller.locked ? 130 : 150,
+                                    width: !controller.locked ? 80 : 100,
+                                    color: Colors.black87,
+                                  ),
+                                  const Expanded(child: SizedBox()),
+                                  Text(
+                                    !controller.locked
+                                        ? 'Bin is Locked'
+                                        : 'Bin is Unlocked',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: !controller.locked
+                                            ? Colors.red
+                                            : Colors.black),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
