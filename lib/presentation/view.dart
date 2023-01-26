@@ -111,8 +111,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                     ),
                     Container(
                       decoration: const BoxDecoration(
-                        // color: Colors.grey[100]?.withOpacity(0.8),
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
                       ),
                       height: size.height * 0.18,
                       width: 20,
@@ -120,13 +119,18 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                         children: [
                           Expanded(
                             child: Container(
+                              decoration: const BoxDecoration(
+                              color: Colors.green,
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(5),
+                                    topRight: Radius.circular(5)),
+                              ),
                               width: 20,
                               height: size.height *
                                   0.18 *
                                   (100.0 -
                                       controller.percentageVal.toDouble() /
                                           100),
-                              color: Colors.green,
                             ),
                           ),
                           Container(
