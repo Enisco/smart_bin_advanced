@@ -109,38 +109,170 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                         ),
                       ),
                     ),
-                    Container(
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
+
+                    // Card(
+                    //   elevation: 6,
+                    //   shadowColor: Colors.grey[700],
+                    //   child: Container(
+                    //     decoration: const BoxDecoration(
+                    //       borderRadius: BorderRadius.all(Radius.circular(15)),
+                    //     ),
+                    //     height: size.height * 0.18,
+                    //     width: 20,
+                    //     child: Column(
+                    //       children: [
+                    //         Expanded(
+                    //           child: Container(
+                    //             decoration: BoxDecoration(
+                    //               color: Colors.grey[50],
+                    //               border: Border.all(
+                    //                 width: 0.5,
+                    //                 color: Colors.grey,
+                    //               ),
+                    //               borderRadius: controller.percentageVal <= 0
+                    //                   ? const BorderRadius.all(
+                    //                       Radius.circular(5),
+                    //                     )
+                    //                   : const BorderRadius.only(
+                    //                       topLeft: Radius.circular(5),
+                    //                       topRight: Radius.circular(5)),
+                    //             ),
+                    //             width: 20,
+                    //             height: size.height *
+                    //                 0.18 *
+                    //                 (100.0 -
+                    //                     controller.percentageVal.toDouble() /
+                    //                         100),
+                    //           ),
+                    //         ),
+                    //         Card(
+                    //           shape: const RoundedRectangleBorder(
+                    //             borderRadius:
+                    //                 BorderRadius.all(Radius.circular(8)),
+                    //           ),
+                    //           elevation: 6,
+                    //           shadowColor: Colors.grey[700],
+                    //           margin: const EdgeInsets.all(0),
+                    //           child: Container(
+                    //             decoration: BoxDecoration(
+                    //               color: Colors.red,
+                    //               borderRadius: controller.percentageVal >= 100
+                    //                   ? const BorderRadius.all(
+                    //                       Radius.circular(5),
+                    //                     )
+                    //                   : const BorderRadius.only(
+                    //                       bottomRight: Radius.circular(3),
+                    //                       bottomLeft: Radius.circular(3)),
+                    //               border: Border.all(
+                    //                 width: 0.5,
+                    //                 color: Colors.grey,
+                    //               ),
+                    //             ),
+                    //             width: 30,
+                    //             height: size.height *
+                    //                 0.18 *
+                    //                 (controller.percentageVal.toDouble() / 100),
+                    //           ),
+                    //         ),
+                    //       ],
+                    //     ),
+                    //   ),
+                    // ),
+
+                    // Background Gradient
+                    Card(
+                      elevation: 6,
+                      shadowColor: Colors.grey[700],
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(4)),
                       ),
-                      height: size.height * 0.18,
-                      width: 20,
-                      child: Column(
-                        children: [
-                          Expanded(
-                            child: Container(
-                              decoration: const BoxDecoration(
-                              color: Colors.green,
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(5),
-                                    topRight: Radius.circular(5)),
+                      margin: const EdgeInsets.all(0),
+                      child: Container(
+                        height: size.height * 0.18,
+                        width: 20,
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(5),
+                          ),
+                          border: Border.all(
+                            width: 0.5,
+                            color: Colors.grey,
+                          ),
+                          gradient: const LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            stops: [
+                              0.1,
+                              0.2,
+                              0.5,
+                              0.8,
+                            ],
+                            colors: [
+                              Colors.red,
+                              Colors.redAccent,
+                              Colors.amber,
+                              Colors.green,
+                            ],
+                          ),
+                        ),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.grey[50],
+                                  border: Border.all(
+                                    width: 0.5,
+                                    color: Colors.grey,
+                                  ),
+                                  borderRadius: controller.percentageVal <= 0
+                                      ? const BorderRadius.all(
+                                          Radius.circular(5),
+                                        )
+                                      : const BorderRadius.only(
+                                          topLeft: Radius.circular(5),
+                                          topRight: Radius.circular(5)),
+                                ),
+                                width: 20,
+                                height: size.height *
+                                    0.18 *
+                                    (100.0 -
+                                        controller.percentageVal.toDouble() /
+                                            100),
                               ),
-                              width: 20,
-                              height: size.height *
-                                  0.18 *
-                                  (100.0 -
-                                      controller.percentageVal.toDouble() /
-                                          100),
                             ),
-                          ),
-                          Container(
-                            width: 30,
-                            height: size.height *
-                                0.18 *
-                                (controller.percentageVal.toDouble() / 100),
-                            color: Colors.red,
-                          ),
-                        ],
+                            Card(
+                              color: Colors.transparent,
+                              shape: const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5)),
+                              ),
+                              elevation: 6,
+                              shadowColor: Colors.transparent,
+                              margin: const EdgeInsets.all(0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                  borderRadius: controller.percentageVal >= 100
+                                      ? const BorderRadius.all(
+                                          Radius.circular(5),
+                                        )
+                                      : const BorderRadius.only(
+                                          bottomRight: Radius.circular(5),
+                                          bottomLeft: Radius.circular(5)),
+                                  border: Border.all(
+                                    width: 0.5,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                                width: 30,
+                                height: size.height *
+                                    0.18 *
+                                    (controller.percentageVal.toDouble() / 100),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],

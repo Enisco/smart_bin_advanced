@@ -42,7 +42,7 @@ class LocalNotificationServices {
     NotificationDetails notificationDetails =
         NotificationDetails(android: androidNotificationDetails);
     await flutterLocalNotificationsPlugin.show(
-        0, 'Warning!', 'Waste bin is full: $val', notificationDetails,
+        0, 'Warning!', 'Waste bin is full: $val%', notificationDetails,
         payload: '');
   }
 }
