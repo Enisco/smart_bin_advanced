@@ -21,8 +21,8 @@ class SmartWasteBinController extends GetxController {
       MqttServerClient.withPort('broker.emqx.io', 'wastebinapp_client1', 1883);
   var pongCount = 0, connStatus = 0;
   final builder = MqttClientPayloadBuilder();
-  String pubTopic = 'bern/wastebinapp/apptobin';
-  String subTopic = 'bern/wastebinapp/bintoapp';
+  String pubTopic = 'wastebinapp/apptobin';
+  String subTopic = 'wastebinapp/bintoapp';
 
   /// Functions
   Future<void> mqttConnect() async {

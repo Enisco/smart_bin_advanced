@@ -124,16 +124,33 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                         children: [
                           Expanded(
                             child: Container(
+                              padding: const EdgeInsets.only(bottom: 10),
                               height: 200,
                               decoration: const BoxDecoration(
                                 color: Color.fromRGBO(24, 160, 221, 0.06),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(12)),
                               ),
-                              child: const Image(
-                                image: AssetImage("assets/padlock_open.png"),
-                                height: 70,
-                                width: 50,
+                              child: Column(
+                                children: [
+                                  SizedBox(height: 15),
+                                  Image(
+                                    image: controller.locked
+                                        ? AssetImage("assets/lock-closed.png")
+                                        : AssetImage("assets/padlock_open.png"),
+                                    height: controller.locked ? 180 : 150,
+                                    width: 100,
+                                    color: Colors.black87,
+                                  ),
+                                  Expanded(child: SizedBox()),
+                                  Text(
+                                    'Bin is Unlocked',
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
@@ -153,41 +170,6 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                     ],
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    CircleAvatar(
-                      radius: 10,
-                      backgroundColor: Colors.red,
-                    ),
-                    SizedBox(width: 10),
-                    Text('Filled'),
-                    SizedBox(width: 30),
-                    CircleAvatar(
-                      radius: 10,
-                      backgroundColor: Colors.green,
-                    ),
-                    SizedBox(width: 10),
-                    Text('Available'),
-                  ],
-                ),
-                SizedBox(height: size.height * 0.06),
-                const Text(
-                  'Bin fill level:',
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black54),
-                ),
-                SizedBox(height: size.height * 0.02),
-                Text(
-                  '${controller.percentageVal.toString()}%',
-                  style: const TextStyle(
-                    fontSize: 55,
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
-                // const SizedBox(height: 25),
                 SizedBox(height: size.height * 0.045),
                 Center(
                   child: TextButton(
