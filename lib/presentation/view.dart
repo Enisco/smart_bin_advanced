@@ -138,7 +138,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                                   controller.open
                                       ? const Image(
                                           image:
-                                              AssetImage("assets/bin-open.png"),
+                                              AssetImage("assets/bin_open.png"),
                                           height: 150,
                                           width: 100,
                                           color: Colors.black87,
