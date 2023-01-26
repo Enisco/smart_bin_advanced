@@ -135,7 +135,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                               child: Column(
                                 children: [
                                   const SizedBox(height: 15),
-                                  controller.open
+                                  !controller.open
                                       ? const Image(
                                           image:
                                               AssetImage("assets/bin_open.png"),
