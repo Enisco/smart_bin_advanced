@@ -50,61 +50,96 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Card(
-                  elevation: 3,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
-                  ),
-                  child: Container(
-                    width: size.width,
-                    height: size.height * 0.18,
-                    decoration: BoxDecoration(
-                      color: Colors.grey[100]?.withOpacity(0.8),
-                      borderRadius: const BorderRadius.all(Radius.circular(12)),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const SizedBox(width: 35),
-                        Container(
-                          height: 100,
-                          width: 110,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(0),
-                            ),
-                            image: DecorationImage(
-                              image: AssetImage(
-                                'assets/waste-bin.gif',
-                              ),
-                              fit: BoxFit.fill,
-                            ),
-                          ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Card(
+                      elevation: 3,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                      ),
+                      child: Container(
+                        height: size.height * 0.18,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[100]?.withOpacity(0.8),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(12)),
                         ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            const Text(
-                              'Bin fill level:',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.black54),
-                            ),
-                            const SizedBox(height: 10),
-                            Text(
-                              '${controller.percentageVal.toString()}%',
-                              style: const TextStyle(
-                                fontSize: 55,
-                                fontWeight: FontWeight.w800,
+                            const SizedBox(width: 35),
+                            Container(
+                              height: 100,
+                              width: 110,
+                              decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(0),
+                                ),
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/waste-bin.gif',
+                                  ),
+                                  fit: BoxFit.fill,
+                                ),
                               ),
                             ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  'Bin fill level:',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black54),
+                                ),
+                                const SizedBox(height: 10),
+                                Text(
+                                  '${controller.percentageVal.toString()}%',
+                                  style: const TextStyle(
+                                    fontSize: 55,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(width: 85),
                           ],
                         ),
-                        const SizedBox(width: 85),
-                      ],
+                      ),
                     ),
-                  ),
+                    Container(
+                      decoration: const BoxDecoration(
+                        // color: Colors.grey[100]?.withOpacity(0.8),
+                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                      ),
+                      height: size.height * 0.18,
+                      width: 20,
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              width: 20,
+                              height: size.height *
+                                  0.18 *
+                                  (100.0 -
+                                      controller.percentageVal.toDouble() /
+                                          100),
+                              color: Colors.green,
+                            ),
+                          ),
+                          Container(
+                            width: 30,
+                            height: size.height *
+                                0.18 *
+                                (controller.percentageVal.toDouble() / 100),
+                            color: Colors.red,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(height: size.height * 0.03),
                 // Last activity box
