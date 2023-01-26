@@ -1,5 +1,5 @@
 // ignore_for_file: depend_on_referenced_packages
-//  (size.height - (size.height * 0.81) ) / 2
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smart_bin_advanced/presentation/controller.dart';
@@ -329,7 +329,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                     TextButton(
                       onPressed: () {
                         print('Custom Button pressed');
-                        controller.mqttPublish(controller.open ? "2" : "1");
+                        controller.mqttPublish(controller.open ? "4" : "3");
                       },
                       style: TextButton.styleFrom(
                         backgroundColor: controller.open

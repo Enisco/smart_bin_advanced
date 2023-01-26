@@ -55,11 +55,11 @@ class SmartWasteBinController extends GetxController {
     try {
       await client.connect();
     } on NoConnectionException catch (e) {
-      print('EXAMPLE::client exception - $e');
+      print(' client exception - $e');
       client.disconnect();
     } on SocketException catch (e) {
       // Raised by the socket layer
-      print('EXAMPLE::socket exception - $e');
+      print(' socket exception - $e');
       client.disconnect();
     }
 
@@ -118,6 +118,8 @@ class SmartWasteBinController extends GetxController {
 
           if (percentageVal > 90) {
             localNotificationServices.showNotification(percentageVal);
+            locked = true;
+            print("bin is now locked: locked = $locked");
             lastTimeFull = getLastTime();
             print("lastTimeFull: $lastTimeFull");
             update();
@@ -129,7 +131,7 @@ class SmartWasteBinController extends GetxController {
         }) ??
         client.published?.listen((MqttPublishMessage message) {
           print(
-              'EXAMPLE::Published notification:: topic is ${message.variableHeader!.topicName}, with Qos ${message.header!.qos}');
+              'Published notification:: topic is ${message.variableHeader!.topicName}, with Qos ${message.header!.qos}');
         }) ??
         1;
     return;
@@ -148,7 +150,7 @@ class SmartWasteBinController extends GetxController {
     builder.addString(msg);
 
     // Publish it
-    print('EXAMPLE::Publishing message: $msg');
+    print('Publishing message: $msg');
     client.publishMessage(pubTopic, MqttQos.atMostOnce, builder.payload!);
   }
 
@@ -194,12 +196,12 @@ class SmartWasteBinController extends GetxController {
   /// The pre auto re connect callback
   void onAutoReconnect() {
     print(
-        'EXAMPLE::onAutoReconnect client callback - Client auto reconnection sequence will start');
+        ' onAutoReconnect client callback - Client auto reconnection sequence will start');
   }
 
   /// The post auto re connect callback
   void onAutoReconnected() {
     print(
-        'EXAMPLE::onAutoReconnected client callback - Client auto reconnection sequence has completed');
+        ' onAutoReconnected client callback - Client auto reconnection sequence has completed');
   }
 }
