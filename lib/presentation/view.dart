@@ -131,7 +131,10 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                                     BorderRadius.all(Radius.circular(12)),
                               ),
                               child: const Image(
-                                  image: AssetImage("assets/padlock_open.png")),
+                                image: AssetImage("assets/padlock_open.png"),
+                                height: 70,
+                                width: 50,
+                              ),
                             ),
                           ),
                           const SizedBox(width: 15),
