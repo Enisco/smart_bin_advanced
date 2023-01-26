@@ -124,7 +124,8 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                         children: [
                           Expanded(
                             child: Container(
-                              padding: const EdgeInsets.only(bottom: 10),
+                              padding: EdgeInsets.only(
+                                  bottom: 10, top: controller.open ? 0 : 12),
                               height: 200,
                               decoration: const BoxDecoration(
                                 color: Color.fromRGBO(24, 160, 221, 0.06),
@@ -145,14 +146,14 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                                       : const Image(
                                           image: AssetImage(
                                               "assets/waste-bin-closed.png"),
-                                          height: 120,
+                                          height: 110,
                                           width: 80,
                                           color: Colors.black87,
                                         ),
                                   const Expanded(child: SizedBox()),
                                   Text(
                                     controller.open
-                                        ? 'Bin is Open'
+                                        ? ' Bin is Open'
                                         : 'Bin is Closed',
                                     style: TextStyle(
                                         fontSize: 18,
