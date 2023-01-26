@@ -54,9 +54,6 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                   elevation: 3,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(12)),
-                    // side: BorderSide(
-                    //   color: Colors.grey,
-                    // ),
                   ),
                   child: Container(
                     width: size.width,
@@ -69,21 +66,6 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         const SizedBox(width: 135),
-                        // Container(
-                        //   height: 90,
-                        //   width: 100,
-                        //   decoration: const BoxDecoration(
-                        //     borderRadius: BorderRadius.all(
-                        //       Radius.circular(0),
-                        //     ),
-                        //     image: DecorationImage(
-                        //       image: AssetImage(
-                        //         'assets/waste-bin.gif',
-                        //       ),
-                        //       fit: BoxFit.fill,
-                        //     ),
-                        //   ),
-                        // ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
