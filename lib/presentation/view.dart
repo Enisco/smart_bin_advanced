@@ -65,10 +65,10 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const SizedBox(width: 135),
+                        const SizedBox(width: 35),
                         Container(
-                          height: 90,
-                          width: 100,
+                          height: 100,
+                          width: 110,
                           decoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(
                               Radius.circular(0),
@@ -101,7 +101,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                             ),
                           ],
                         ),
-                        const SizedBox(width: 135),
+                        const SizedBox(width: 85),
                       ],
                     ),
                   ),
@@ -258,7 +258,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                       },
                       style: TextButton.styleFrom(
                         backgroundColor:
-                            controller.locked ? Colors.red : Colors.green,
+                            controller.locked ? Colors.red : Colors.green[400],
                         fixedSize: Size(size.width / 2.5, 50),
                         padding: EdgeInsets.zero,
                         shape: RoundedRectangleBorder(
