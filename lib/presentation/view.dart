@@ -53,8 +53,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                   width: size.width,
                   height: 150,
                   decoration: BoxDecoration(
-                    // color: Color.fromRGBO(24, 160, 251, 0.08),
-                    color: Colors.grey[100],
+                    color: Colors.grey[100]?.withOpacity(0.8),
                     borderRadius: const BorderRadius.all(Radius.circular(12)),
                   ),
                   child: Row(
@@ -125,24 +124,22 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                         children: [
                           Expanded(
                             child: Container(
-                              // width: size.width * 0.35,
                               height: 200,
                               decoration: const BoxDecoration(
-                                color: Color.fromRGBO(64, 190, 121, 0.05),
-                                // color: Colors.grey[100],
+                                color: Color.fromRGBO(24, 160, 221, 0.06),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(12)),
                               ),
+                              child: const Image(
+                                  image: AssetImage("assets/padlock_open.png")),
                             ),
                           ),
                           const SizedBox(width: 15),
                           Expanded(
                             child: Container(
-                              // width: size.width * 0.35,
-                              height: 150,
+                              height: 200,
                               decoration: const BoxDecoration(
-                                color: Color.fromRGBO(24, 160, 221, 0.08),
-                                // color: Colors.grey[100],
+                                color: Color.fromRGBO(64, 190, 121, 0.05),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(12)),
                               ),
