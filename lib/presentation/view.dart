@@ -145,7 +145,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                                         )
                                       : const Image(
                                           image: AssetImage(
-                                              "assets/waste-bin-close.png"),
+                                              "assets/bin-closed.png"),
                                           height: 110,
                                           width: 80,
                                           color: Colors.black87,
