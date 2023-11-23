@@ -230,6 +230,7 @@ class _SmartWasteBinPageViewState extends State<SmartWasteBinPageView> {
                   ],
                 ),
                 SizedBox(height: size.height * 0.03),
+                
                 // Last activity box
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 15),

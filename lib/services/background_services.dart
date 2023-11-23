@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages, avoid_print
+
 import 'package:flutter_background/flutter_background.dart';
 
 class BackgroundService {
@@ -12,10 +14,11 @@ class BackgroundService {
   );
 
   initializeBackgroundService() async {
-    bool hasPermissions = await FlutterBackground.hasPermissions;
-    bool initialized =
+    // bool hasPermissions =
+     await FlutterBackground.hasPermissions;
+    // bool initialized =
         await FlutterBackground.initialize(androidConfig: androidConfig);
-    bool enabledBackgroundExecution =
+    // bool enabledBackgroundExecution =
         await FlutterBackground.enableBackgroundExecution();
   }
 }
