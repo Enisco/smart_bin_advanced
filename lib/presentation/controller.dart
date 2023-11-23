@@ -125,23 +125,23 @@ class SmartWasteBinController extends GetxController {
           }
 
           if (percentageVal >= 90) {
-            // if (snoozeNotification == true && shouldSnooze == false) {
-            //   print("Hallo here");
-            //   localNotificationServices.showNotification(percentageVal);
-            //   shouldSnooze = true;
-            //   snoozeTime.add(const Duration(minutes: 1));
-            // } else if (snoozeNotification == true && shouldSnooze == true) {
-            //   print("Hey! Im here");
-            //   if (snoozeTime.compareTo(DateTime.now()) >= 0) {
-            //     print("From this corner");
-            //     shouldSnooze = false;
-            //     localNotificationServices.showNotification(percentageVal);
-            //   }
-            // } else {
-            //   print("We dont know wjat's going on");
-            //   localNotificationServices.showNotification(percentageVal);
-            // }
-            localNotificationServices.showNotification(percentageVal);
+            if (snoozeNotification == true && shouldSnooze == false) {
+              print("Hallo here");
+              localNotificationServices.showNotification(percentageVal);
+              shouldSnooze = true;
+              snoozeTime = DateTime.now().add(const Duration(minutes: 1));
+              print("snoozeTime: $snoozeTime");
+            } else if (snoozeNotification == true && shouldSnooze == true) {
+              print("Hey! I'm here");
+              print("set snoozeTime: $snoozeTime");
+              if (DateTime.now().compareTo(snoozeTime) >= 0) {
+                print("From this corner");
+                shouldSnooze = false;
+              }
+            } else {
+              print("Okay . . .");
+              localNotificationServices.showNotification(percentageVal);
+            }
 
             lastTimeFull = getLastTime();
             print("lastTimeFull: $lastTimeFull");
